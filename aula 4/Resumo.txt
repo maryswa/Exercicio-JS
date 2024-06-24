@@ -1,0 +1,11 @@
+Programação BackEnd
+*Assincronismo
+*Funções Assincronas / Async e Await
+*Requisições HTTP
+*APIS e EndPoints
+
+--------------------------------------------
+1-Assincronismo:
+Sincronismo é uma tarefa que depende esclusivamente do tempo de processamento e resposta do sistema
+
+2-Assincronismo nas Requisições HTTP:
