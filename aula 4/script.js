@@ -1,39 +1,28 @@
-//Fatch Teste 01 Esctudando as Promises 
+//Realizando o Fatch no endpoint
 
-//const req = fatch('https://pokeapi.co/api/v2/pokemon/pikachu');
-//console.log(req);
 
-//Fatch Teste 02 Resolvendo a Promise
-// fatch('https://pokeapi.co/api/v2/pokemon/pikachu')
- //.then(resp => console.log(resp))
- //.catch(error => console.log(error))
-
-// Fatch Teste 03 convertendo a resposta em JSON
-//fatch('https://pokeapi.co/api/v2/pokemon/pikachu')
-//.then(resp => resp.json())
-//.then(data => console.log(data))
-//.catch(error => console.log(error));
-
-// Fatch Teste 03 convertendo a resposta em JSON
-//fatch('https://pokeapi.co/api/v2/pokemon/1')
-//.then(resp => resp.json())
-//.then(data => console.log(data))
-//.catch(error => console.log(error))
-
-// Fatch teste 5 utilizando o try catch
-async function fatchpokemon(){ 
-    try {
-        const resp =  await fatch('https://pokeapi.co/api/v2/pokemon/pikachu');
-        if(!resp.ok){
-            throw new Error('Pokemon nao encontrado');
-        } else{
-            const data = await resp.json();
-            console.log(data);
-        }
-    } catch (error) {
-        
-    }
+const pegaPokemon = async () =>{
+    const url = `https://pokeapi.co/api/v2/pokemon/${id}`
+    const res =  await fatch(url)
+    const data = await res.json()
+    console.log(data.name);
 }
 
- fatchpokemon(); 
+const fatchPokemon = async () =>{
+    for(let i = 1; i <= 100; i++){
+        await pegaPokemon(i)
+    }
+}
+//Percorrenfo os 100 perimeiros pokemons
+const pegaPokemon = async () =>{
+    const url = `https://pokeapi.co/api/v2/pokemon/${id}`
+    const res =  await fatch(url)
+    const data = await res.json()
+    //console.log(data.name);
+    console.log(data.types[0].type.name);
+}
+fatchPokemon();
 
+
+
+pegaPokemon();
